@@ -1,7 +1,7 @@
-int echoPin = 13; //echo
-int trigPin = 12; //trigger
-int pin1 = 11;
-int duration, distance;
+int echoPin = 13;        //echo
+int trigPin = 12;        //trigger
+int pin1 = 11;           //pin die wordt gebruikt om te testen of de sensor het ook echt doet
+int duration, distance;  //definieer de variabeles duration en distance: de tijd die sensor erover doet om een echo terug te zenden en welke afstand daarbij hoort
 
 void setup()
 {
@@ -19,9 +19,6 @@ void loop()
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
-  //definieer een variabele genaamd duration: dit is hoelang de echo erover doet om een signaal terug te sturen (om op HIGH te gaan staan)
   duration = pulseIn(echoPin, HIGH);
-
+  distance = (duration/2) / 29.1;
 }
-
-//hahahahaha
