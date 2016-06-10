@@ -1,3 +1,6 @@
+//simpele code om te kijken of de HC-SR04 sensor werkt, door een ledlampje aan te sluiten
+//en deze te laten branden wanneer de sensor activiteit ontdekt binnen zijn ingsteld bereik
+
 int echoPin = 13;        //echo
 int trigPin = 12;        //trigger
 int pin1 = 11;           //pin die wordt gebruikt om te testen of de sensor het ook echt doet
