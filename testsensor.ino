@@ -21,7 +21,8 @@ void loop()
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-
+  
+  //onderstaande meet de tijd die de sensor erover doet om een signaal terug te sturen, en zet dat vervolgens om in een afstand
   duration = pulseIn(echoPin, HIGH);
   distance = (duration/2) / 29.1;
 }
