@@ -3,14 +3,16 @@
 
 int echoPin = 13;        //echo
 int trigPin = 12;        //trigger
-int pin1 = 11;           //pin die wordt gebruikt om te testen of de sensor het ook echt doet
+int ledPin1 = 8;            //brandt wanneer de sensor activiteit registreerd
+int ledPin2 = 7;            //brandt wanneer de sensor geen activiteit registreerd  
 int duration, distance;  //definieer de variabeles duration en distance: de tijd die sensor erover doet om een echo terug te zenden en welke afstand daarbij hoort
 
 void setup()
 {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-  pinMode(pin1, OUTPUT);
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
 }
 
 void loop()
@@ -25,4 +27,13 @@ void loop()
   //onderstaande meet de tijd die de sensor erover doet om een signaal terug te sturen, en zet dat vervolgens om in een afstand
   duration = pulseIn(echoPin, HIGH);
   distance = (duration/2) / 29.1;
+  
+  if (distance < 4) {
+    digitalWrite(ledPin1, HIGH);
+    digitalWrite(ledPin2, LOW);
+  }
+  else {
+    digitalWrite(ledPin1, LOW);
+    digitalWrite(ledPin2, HIGH);
+  }
 }
