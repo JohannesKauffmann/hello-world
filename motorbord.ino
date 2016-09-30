@@ -2,8 +2,8 @@
 
 // motor 1
 int enA = 11; //pin voor de snelheidscontrole
-int in1 = 10; //pins voor voor- en achteruit
-int in2 = 9;
+int in1 = 13; //pins voor voor- en achteruit
+int in2 = 12;
 //motor 2
 int enB = 6;
 int in3 = 8;
