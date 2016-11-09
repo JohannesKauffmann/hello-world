@@ -39,5 +39,71 @@ void setup() {
 
 }
 
+void straight(){
+//hier moet eerst nog in gezet worden dat de servo naar de 0 positie moet!
+      // motor A gaat aan
+digitalWrite(in1, HIGH);
+digitalWrite(in2, LOW);
+  // maakt de snelheid van de motor 200 deze komt uit de range van 0-255
+analogWrite(enA, 200);
+  // turn on motor B
+digitalWrite(in3, HIGH);
+digitalWrite(in4, LOW);
+  // maakt de snelheid van de motor 200 deze komt uit de range van 0-255
+analogWrite(enB, 200);
+delay(20);
+}
+
+void left(){
+//hier moet je eerst nog neerzetten dat de servo draait naar de linker kant en hierdoor de bocht van het object weg maakt.
+digitalWrite(in1, HIGH);
+digitalWrite(in2, LOW);
+  // maakt de snelheid van de motor 100 deze komt uit de range van 0-255
+analogWrite(enA, 100);
+  // turn on motor B
+digitalWrite(in3, HIGH);
+digitalWrite(in4, LOW);
+  // maakt de snelheid van de motor 100 deze komt uit de range van 0-255
+analogWrite(enB, 100);
+//hier komt de tijd dat de auto nodig heeft om een 90 graden hoek te draaien.
+}
+
+void right(){
+//hier moet je eerst nog neerzetten dat de servo draait naar de rechter kant en hierdoor de bocht van het object weg maakt.
+digitalWrite(in1, HIGH);
+digitalWrite(in2, LOW);
+  // maakt de snelheid van de motor 100 deze komt uit de range van 0-255
+analogWrite(enA, 100);
+  // turn on motor B
+digitalWrite(in3, HIGH);
+digitalWrite(in4, LOW);
+  // maakt de snelheid van de motor 100 deze komt uit de range van 0-255
+analogWrite(enB, 100);
+//hier komt de tijd dat de auto nodig heeft om een 90 graden hoek te draaien.
+}
+
+void achteruit(){
+// hier moet eerst de code komen om tegen te gaan dat hij in een hoek rijdt of in een muur recht voor zich.
+//hier de code voor het rijden
+//hier de code voor de tijd dat hij daar over doet.
+}
+
+
 void loop() {
-  // put your main code here, to run repeatedly:​
+  val1 = digitalRead(sensor1);
+if (val1 == HIGH) {
+  
+}
+  val2 = digitalRead(sensor2);
+if (val2 == HIGH) {
+  
+}
+  val3 = digitalRead(sensor3);
+if (val3 == HIGH) {
+  
+}
+  val4 = digitalRead(sensor4);
+if (val4 == HIGH) {
+  
+}
+
