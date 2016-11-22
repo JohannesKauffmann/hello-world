@@ -1,0 +1,135 @@
+#include <Servo.h>
+
+// motor 1
+int enA = 11; //pin voor de snelheidscontrole
+int in1 = 10; //pins voor voor- en achteruit
+int in2 = 9;
+//motor 2
+int enB = 6;
+int in3 = 8;
+int in4 = 7;
+
+//dit zijn de pins die aangeven of de sensoren iets hebben geregistreerd
+int sensor1 = 5;
+int sensor2 = 4;
+int sensor3 = 3;
+int sensor4 = 2;
+
+Servo myservo; //maakt een servo-object om de servo mee te besturen
+
+int pos = 0; //een variabele om de positie van de servo in te bewaren
+
+void setup() {
+  //de pins die naar de H-bridge gaan zijn allemaal outputs
+  pinMode(enA, OUTPUT);
+  pinMode(enB, OUTPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+
+  //de pins van het sensorbord zijn allemaal inputs
+  pinMode(sensor1, INPUT);
+  pinMode(sensor2, INPUT);
+  pinMode(sensor3, INPUT);
+  pinMode(sensor4, INPUT);
+
+  //maakt de servo op het servo-object vast aan pin 9
+  myservo.attach(12);
+}
+
+
+void loop(){
+ myservo.write(100); //de auto heeft een afwiking naar links, vandaar 100 ipv 90 graden
+ //motor 1 gaat naar voren met snelheid 150/255
+ digitalWrite(in1, LOW);
+ digitalWrite(in2, HIGH);
+ // maakt de snelheid van de motor 180 deze komt uit de range van 0-255
+ analogWrite(enA, 150);
+ // turn on motor B
+ digitalWrite(in3, LOW);
+ digitalWrite(in4, HIGH);
+ // maakt de snelheid van de motor 150 deze komt uit de range van 0-255
+ analogWrite(enB, 150);
+ delay(1700);
+ 
+ //snelheid verminderen, daarna gaat de auto de eerste bocht om
+ analogWrite(enA, 90);
+ analogWrite(enB, 90);
+ myservo.write(160);
+ delay(1700);
+ //na de bocht versnelt de auto
+ myservo.write(90);
+ analogWrite(enA, 150);
+ analogWrite(enB, 150);
+ delay(1000);
+ 
+ //snelheid verminderen, daarna maakt de auto de tweede bocht: totaal=180graden
+ analogWrite(enA, 90);
+ analogWrite(enB, 90);
+ myservo.write(160);
+ delay(1700);
+ myservo.write(90);
+ analogWrite(enA, 150);
+ analogWrite(enB, 150);
+ delay(1700);
+
+ //snelheid verminderen, daarna derde bocht maken, totaal=270graden
+ analogWrite(enA, 90);
+ analogWrite(enB, 90);
+ myservo.write(160);
+ delay(2000);
+ myservo.write(90);
+ analogWrite(enA, 150);
+ analogWrite(enB, 150);
+ delay(1000);
+
+ //vierde bocht in, nu staat de auto weer op 180 graden
+ analogWrite(enA, 90);
+ analogWrite(enB, 90);
+ myservo.write(20);
+ delay(850);
+ myservo.write(90);
+ analogWrite(enA, 150);
+ analogWrite(enB, 150);
+ delay(1700);
+
+ //vijfde bocht, auto heeft nu weer een positie van 90 graden tov beginpositie
+ analogWrite(enA, 90);
+ analogWrite(enB, 90);
+ myservo.write(20);
+ delay(850);
+ myservo.write(90);
+ analogWrite(enA, 150);
+ analogWrite(enB, 150);
+ delay(1000);
+
+ //zesde bocht, auto rijdt nu in dezelfde richting tov beginpositie
+ analogWrite(enA, 90);
+ analogWrite(enB, 90);
+ myservo.write(20);
+ delay(2000);
+ myservo.write(90);
+ analogWrite(enA, 150);
+ analogWrite(enB, 150);
+ delay(1700);
+
+ //stukje achteruit en dan stoppen
+ //motor 1 gaat naar voren met snelheid 150/255
+ digitalWrite(in1, HIGH);
+ digitalWrite(in2, LOW);
+ // maakt de snelheid van de motor 180 deze komt uit de range van 0-255
+ analogWrite(enA, 90);
+ // turn on motor B
+ digitalWrite(in3, HIGH);
+ digitalWrite(in4, LOW);
+ // maakt de snelheid van de motor 150 deze komt uit de range van 0-255
+ analogWrite(enB, 90);
+ delay(1700);
+
+ // einde
+  analogWrite(enA, 0);
+  analogWrite(enB, 0);
+  delay(3000);
+ 
+}
