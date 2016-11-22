@@ -2,8 +2,8 @@
 
 // motor 1
 int enA = 11; //pin voor de snelheidscontrole
-int in1 = 13; //pins voor voor- en achteruit
-int in2 = 12;
+int in1 = 10; //pins voor voor- en achteruit
+int in2 = 9;
 //motor 2
 int enB = 6;
 int in3 = 8;
@@ -53,86 +53,6 @@ void loop(){
  delay(2500);
  
  //snelheid verminderen, daarna gaat de auto de eerste bocht om
- analogWrite(enA, 50);
- analogWrite(enB, 50);
- myservo.write(170);
- delay(1300);
- //na de bocht versnelt de auto
- analogWrite(enA, 180);
- analogWrite(enB, 180);
- delay(2500);
-
- //de tweede bocht
- analogWrite(enA, 50);
- analogWrite(enB, 50);
- myservo.write(170);
- delay(1300);
- //na de bocht versnelt de auto
- analogWrite(enA, 180);
- analogWrite(enB, 180);
- delay(2500);
-
- //de derde bocht
- analogWrite(enA, 50);
- analogWrite(enB, 50);
- myservo.write(170);
- delay(1300);
- //na de bocht versnelt de auto
- analogWrite(enA, 180);
- analogWrite(enB, 180);
- delay(2500);
-
- //de derde bocht
- analogWrite(enA, 50);
- analogWrite(enB, 50);
- myservo.write(170);
- delay(1300);
- //na de bocht versnelt de auto
- analogWrite(enA, 180);
- analogWrite(enB, 180);
- delay(2500);
-
- //de vierde bocht, ditmaal in de tegenovergestelde richting
- analogWrite(enA, 50);
- analogWrite(enB, 50);
- myservo.write(10);
- delay(1300);
- //na de bocht versnelt de auto
- analogWrite(enA, 180);
- analogWrite(enB, 180);
- delay(2500);
-
- //de vijfde bocht
- analogWrite(enA, 50);
- analogWrite(enB, 50);
- myservo.write(10);
- delay(1300);
- //na de bocht versnelt de auto
- analogWrite(enA, 180);
- analogWrite(enB, 180);
- delay(2500);
-
- //de zesde bocht
- analogWrite(enA, 50);
- analogWrite(enB, 50);
- myservo.write(10);
- delay(1300);
- //na de bocht versnelt de auto
- analogWrite(enA, 180);
- analogWrite(enB, 180);
- delay(2500);
-
- //de zevende bocht
- analogWrite(enA, 50);
- analogWrite(enB, 50);
- myservo.write(10);
- delay(1300);
- //na de bocht versnelt de auto
- analogWrite(enA, 180);
- analogWrite(enB, 180);
- delay(2500);
-
- //na deze bocht is de auto weer bij zijn beginpunt
  analogWrite(enA, 50);
  analogWrite(enB, 50);
  myservo.write(170);
