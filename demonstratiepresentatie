@@ -20,6 +20,7 @@ Servo myservo; //maakt een servo-object om de servo mee te besturen
 int pos = 0; //een variabele om de positie van de servo in te bewaren
 
 void setup() {
+  myservo.write(90);
   //de pins die naar de H-bridge gaan zijn allemaal outputs
   pinMode(enA, OUTPUT);
   pinMode(enB, OUTPUT);
