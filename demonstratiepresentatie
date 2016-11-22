@@ -40,25 +40,25 @@ void setup() {
 
 
 void loop(){
- //motor 1 gata aar voren met snelheid 180/255
- digitalWrite(in1, HIGH);
- digitalWrite(in2, LOW);
+ //motor 1 gaat naar voren met snelheid 150/255
+ digitalWrite(in1, LOW);
+ digitalWrite(in2, HIGH);
  // maakt de snelheid van de motor 180 deze komt uit de range van 0-255
- analogWrite(enA, 200);
+ analogWrite(enA, 150);
  // turn on motor B
- digitalWrite(in3, HIGH);
- digitalWrite(in4, LOW);
- // maakt de snelheid van de motor 180 deze komt uit de range van 0-255
- analogWrite(enB, 200);
- delay(2500);
+ digitalWrite(in3, LOW);
+ digitalWrite(in4, HIGH);
+ // maakt de snelheid van de motor 150 deze komt uit de range van 0-255
+ analogWrite(enB, 150);
+ delay(1700);
  
  //snelheid verminderen, daarna gaat de auto de eerste bocht om
- analogWrite(enA, 50);
- analogWrite(enB, 50);
- myservo.write(170);
- delay(1300);
+ analogWrite(enA, 90);
+ analogWrite(enB, 90);
+ myservo.write(160);
+ delay(2500);
  //na de bocht versnelt de auto
+ myservo.write(90);
  analogWrite(enA, 180);
  analogWrite(enB, 180);
- delay(2500);
-}
+} 
