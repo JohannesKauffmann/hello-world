@@ -34,7 +34,7 @@ void setup() {
   pinMode(sensor3, INPUT);
   pinMode(sensor4, INPUT);
 
-  //maakt de servo op het servo-object vast aan pin 9
+  //maakt de servo op het servo-object vast aan pin 12
   myservo.attach(12);
 }
 
