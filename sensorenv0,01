@@ -1,0 +1,115 @@
+//code voor de sensoren op de bovenste arduino
+
+//rechtsvoor: trig=13, echo=12. daarna: voor, linksvoor, achter
+
+//sensorrechts
+int trigR = 13;
+int echoR = 12;
+
+//sensorvoor
+int trigV = 11;
+int echoV = 10;
+
+//sensorlinks
+int trigL = 9;
+int echoL = 8;
+
+//sensorachter
+int trigB = 7;
+int echoB = 6;
+
+//de pins om de signalen door te geven naar de onderste arduino
+int pin5 = 5; //gebruikt voor rechtsvoor
+int pin4 = 4; //gebruikt voor voorkant
+int pin3 = 3; //gebruikt voor linksvoor
+int pin2 = 2; //gebruikt voor achter
+
+
+
+void setup() {
+  pinMode(trigR, OUTPUT);
+  pinMode(echoR, INPUT);
+  
+  pinMode(trigV, OUTPUT);
+  pinMode(echoV, INPUT);
+
+  pinMode(trigL, OUTPUT);
+  pinMode(echoL, INPUT);
+
+  pinMode(trigB, OUTPUT);
+  pinMode(echoB, INPUT);
+
+  pinMode(pin5, OUTPUT);
+  pinMode(pin4, OUTPUT);
+  pinMode(pin3, OUTPUT);
+  pinMode(pin2, OUTPUT);
+}
+
+
+
+void sensorrechts() { //functie sensor rechtsvoor
+  int duration1, distance1;
+  digitalWrite(trigR, HIGH);
+  delayMicroseconds (10);
+  digitalWrite(trigR, LOW);
+  duration1 = pulseIn(echoR, HIGH);
+  distance1 = (duration1/2)/29.1;
+
+  if (distance1 < 30) { 
+    digitalWrite(pin5, HIGH);
+  } else {
+    digitalWrite(pin5, LOW);
+  }  
+}
+
+void sensorvoor(){ //functie sensor voorkant
+  int duration2, distance2;
+  digitalWrite(trigV, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigV, LOW);
+  duration2 = pulseIn(echoV, HIGH);
+  distance2 = (duration2/2)/29.1;
+
+  if (distance2 < 30) { 
+    digitalWrite(pin4, HIGH);
+  } else {
+    digitalWrite(pin4, LOW);
+  }  
+}
+
+void sensorlinks(){ //functie sensor links
+  int duration3, distance3;
+  digitalWrite (trigL, HIGH);
+  delayMicroseconds (10);
+  digitalWrite (trigL, LOW);
+  duration3 = pulseIn(echoL, HIGH);
+  distance3 = (duration3/2)/29.1;
+
+  if (distance3 < 30) { 
+    digitalWrite (pin3, HIGH);
+  } else {
+    digitalWrite (pin3, LOW);
+  }  
+}
+
+void sensorachter(){ //functie sensor achter
+  int duration4, distance4;
+  digitalWrite (trigB, HIGH);
+  delayMicroseconds (10);
+  digitalWrite (trigB, LOW);
+  duration4 = pulseIn(echoB, HIGH);
+  distance4 = (duration4/2)/29.1;
+
+  if (distance4 < 30) { 
+    digitalWrite (pin2, HIGH);
+  } else {
+    digitalWrite (pin2, LOW);
+  }  
+}
+
+void loop() {
+  sensorrechts();
+  sensorvoor();
+  sensorlinks();
+  sensorachter();
+}
