@@ -1,0 +1,17 @@
+je moet een variabele declareren die opslaat of de auto met een actie bezig is (draaien, achteruit, etc). in principe is deze actie 0, dus de auto is nergens mee bezig
+
+op het moment dat een sensor iets detecteerd moet deze waarde naar 1 gaan en de bijbehorende actie worden uitgevoerd
+
+volle snelheid recht vooruit rijden als waarde = 0
+kijken of er geen sensor iets ziet, gebruik digitalRead()
+zo ja, zet de waarde op 1 -> welke?
+
+links? -> stoppen, achteruit, naar rechts, lagere snelheid, stuur recht, volledige snelheid rechtdoor, waarde op 0
+rechts? -> stoppen, achteruit, naar links, lagere snelheid, stuur recht, volledige snelheid rechtdoor, waarde op 0
+voorkant? -> stoppen, achteruit, naar rechts, lagere snelheid, stuur recht, volledige snelheid rechtsdoor, waarde op 0
+links en rechts? hangt af van de afstand, <doe actie, waarde op 0>
+linksvoor en voor of rechtsvoor en voor? <ga in tegenovergestelde richting, waarde op 0>
+
+
+
+moet de auto wel wat doen als er links of rechts iets gezien wordt? welke hoek staan de sensoren links en rechtsvoor? en de afstand?
