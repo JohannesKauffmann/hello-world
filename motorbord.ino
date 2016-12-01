@@ -103,20 +103,20 @@ void achteruit(){
 void loop() {
 int val1 = digitalRead(sensorright);
   if (val1 == HIGH) {
-  
+  void left();
 }
 int val2 = digitalRead(sensorfront);
 if (val2 == HIGH) {
-  
+  void achteruit();
 }
 int val3 = digitalRead(sensorleft);
 if (val3 == HIGH) {
-  
+  void right();
 }
 if (val2 == HIGH && val3 == HIGH) {
-  
+  void right();
 }
 if (val2 == HIGH && val1 == HIGH) {
-  
+  void left();
 }
 }
