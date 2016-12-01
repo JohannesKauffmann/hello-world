@@ -57,6 +57,8 @@ void sensorrechts() { //functie sensor rechtsvoor
 
   if (distance1 < 30) { 
     digitalWrite(pin5, HIGH);
+    delay(50);
+    digitalWrite(pin5, LOW);
   } else {
     digitalWrite(pin5, LOW);
   }  
@@ -72,6 +74,8 @@ void sensorvoor(){ //functie sensor voorkant
 
   if (distance2 < 30) { 
     digitalWrite(pin4, HIGH);
+    delay(50);
+    digitalWrite(pin4, LOW);
   } else {
     digitalWrite(pin4, LOW);
   }  
@@ -86,7 +90,9 @@ void sensorlinks(){ //functie sensor links
   distance3 = (duration3/2)/29.1;
 
   if (distance3 < 30) { 
-    digitalWrite (pin3, HIGH);
+    digitalWrite(pin3, HIGH);
+    delay(50);
+    digitalWrite(pin3, LOW);
   } else {
     digitalWrite (pin3, LOW);
   }  
@@ -101,7 +107,9 @@ void sensorachter(){ //functie sensor achter
   distance4 = (duration4/2)/29.1;
 
   if (distance4 < 30) { 
-    digitalWrite (pin2, HIGH);
+    digitalWrite(pin2, HIGH);
+    delay(50);
+    digitalWrite(pin2, LOW);
   } else {
     digitalWrite (pin2, LOW);
   }  
