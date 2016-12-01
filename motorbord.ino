@@ -10,10 +10,10 @@ int in3 = 8;
 int in4 = 7;
 
 //dit zijn de pins die aangeven of de sensoren iets hebben geregistreerd
-int sensor1 = 5;
-int sensor2 = 4;
-int sensor3 = 3;
-int sensor4 = 2;
+int sensorright = 5;
+int sensorfront = 4;
+int sensorleft = 3;
+int sensorback = 2;
 
 Servo myservo; //maakt een servo-object om de servo mee te besturen
 
@@ -29,10 +29,10 @@ void setup() {
   pinMode(in4, OUTPUT);
 
   //de pins van het sensorbord zijn allemaal inputs
-  pinMode(sensor1, INPUT);
-  pinMode(sensor2, INPUT);
-  pinMode(sensor3, INPUT);
-  pinMode(sensor4, INPUT);
+  pinMode(sensorright, INPUT);
+  pinMode(sensorfront, INPUT);
+  pinMode(sensorleft, INPUT);
+  pinMode(sensorback, INPUT);
 
   //maakt de servo op het servo-object vast aan pin 9
   myservo.attach(9);
@@ -40,15 +40,14 @@ void setup() {
 }
 
 void straight(){
-//hier moet eerst nog in gezet worden dat de servo naar de 0 positie moet!
       // motor A gaat aan
-digitalWrite(in1, HIGH);
-digitalWrite(in2, LOW);
+digitalWrite(in1, LOW);
+digitalWrite(in2, HIGH);
   // maakt de snelheid van de motor 200 deze komt uit de range van 0-255
 analogWrite(enA, 200);
   // turn on motor B
-digitalWrite(in3, HIGH);
-digitalWrite(in4, LOW);
+digitalWrite(in3, LOW);
+digitalWrite(in4, HIGH);
   // maakt de snelheid van de motor 200 deze komt uit de range van 0-255
 analogWrite(enB, 200);
 delay(20);
@@ -56,36 +55,48 @@ delay(20);
 
 void left(){
 //hier moet je eerst nog neerzetten dat de servo draait naar de linker kant en hierdoor de bocht van het object weg maakt.
-digitalWrite(in1, HIGH);
-digitalWrite(in2, LOW);
+digitalWrite(in1, LOW);
+digitalWrite(in2, HIGH);
   // maakt de snelheid van de motor 100 deze komt uit de range van 0-255
 analogWrite(enA, 100);
   // turn on motor B
-digitalWrite(in3, HIGH);
-digitalWrite(in4, LOW);
+digitalWrite(in3, LOW);
+digitalWrite(in4, HIGH);
   // maakt de snelheid van de motor 100 deze komt uit de range van 0-255
 analogWrite(enB, 100);
-//hier komt de tijd dat de auto nodig heeft om een 90 graden hoek te draaien.
+myservo.write(20);
+delay(1700);
 }
 
 void right(){
-//hier moet je eerst nog neerzetten dat de servo draait naar de rechter kant en hierdoor de bocht van het object weg maakt.
-digitalWrite(in1, HIGH);
-digitalWrite(in2, LOW);
+  
+digitalWrite(in1, LOW);
+digitalWrite(in2, HIGH);
   // maakt de snelheid van de motor 100 deze komt uit de range van 0-255
 analogWrite(enA, 100);
   // turn on motor B
-digitalWrite(in3, HIGH);
-digitalWrite(in4, LOW);
+digitalWrite(in3, LOW);
+digitalWrite(in4, HIGH);
   // maakt de snelheid van de motor 100 deze komt uit de range van 0-255
 analogWrite(enB, 100);
-//hier komt de tijd dat de auto nodig heeft om een 90 graden hoek te draaien.
+myservo.write(160);
+delay(1700);
+
 }
 
 void achteruit(){
-// hier moet eerst de code komen om tegen te gaan dat hij in een hoek rijdt of in een muur recht voor zich.
-//hier de code voor het rijden
-//hier de code voor de tijd dat hij daar over doet.
+ //motor 1 gaat naar achtern met snelheid 90
+ digitalWrite(in1, HIGH);
+ digitalWrite(in2, LOW);
+ // maakt de snelheid van de motor 120 deze komt uit de range van 0-255
+ analogWrite(enA, 120);
+ // turn on motor B
+ digitalWrite(in3, HIGH);
+ digitalWrite(in4, LOW);
+ // maakt de snelheid van de motor 120 deze komt uit de range van 0-255
+ analogWrite(enB, 120);
+ myservo.write(40);
+ delay(1700);
 }
 
 
