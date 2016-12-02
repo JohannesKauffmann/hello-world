@@ -2,8 +2,8 @@
 
 // motor 1
 int enA = 11; //pin voor de snelheidscontrole
-int in1 = 13; //pins voor voor- en achteruit
-int in2 = 12;
+int in1 = 10; //pins voor voor- en achteruit
+int in2 = 9;
 //motor 2
 int enB = 6;
 int in3 = 8;
@@ -35,7 +35,7 @@ void setup() {
   pinMode(sensorback, INPUT);
 
   //maakt de servo op het servo-object vast aan pin 9
-  myservo.attach(9);
+  myservo.attach(12);
 
 }
 
