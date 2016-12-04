@@ -120,3 +120,5 @@ if (val2 == HIGH && val1 == HIGH) {
   void left();
 }
 }
+
+//we moeten testen als hij niet alle sensoren meet. dus dat alle sensoren high geven. dus moeten we dat even testen
